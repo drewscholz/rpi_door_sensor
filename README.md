@@ -1,5 +1,10 @@
 # rpi_magnet_contact
 
+prereq:
+---------------
+* `sudo apt-get install python3-dev python3-rpi.gpio python3-pip``
+
+
 $20 door sensor
 ----------------
 * raspberry pi zero with headers
