@@ -10,11 +10,6 @@ $20 door sensor
 * magnetic contact sensor
 
 
-prereq:
----------------
-* `sudo apt update` (fixes pip3)
-
-
 Set cron job
 ---------------
 *  edit the file /etc/rsyslog.conf and uncomment this line `# cron.*                          /var/log/cron.log` (enables cron logging)
@@ -25,3 +20,6 @@ Set cron job
 *  restart pi `sudo reboot`
 
 
+If pip3 is not working:
+---------------
+* `sudo apt update`
