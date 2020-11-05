@@ -1,5 +1,7 @@
 # rpi_magnet_contact
 
+This setup will communicate the door state to another server via API post.
+
 
 $20 door sensor
 ----------------
@@ -22,4 +24,4 @@ Set cron job
 *  ensure python script has `#!/usr/bin/python3` at top of file
 *  restart pi `sudo reboot`
 
-This setup will communicate the door state to another server via API call.
+
