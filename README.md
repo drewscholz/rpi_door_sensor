@@ -15,7 +15,7 @@ prereq:
 
 Set cron job
 ---------------
-*  edit the file /etc/rsyslog.conf and uncomment this line `# cron.*                          /var/log/cron.log`
+*  edit the file /etc/rsyslog.conf and uncomment this line `# cron.*                          /var/log/cron.log` (enables cron logging)
 *  open crontab `sudo crontab -e`
 *  add `SHELL=/bin/bash`, `PYTHONPATH=/usr/bin/python3`
 *  set job `@reboot /home/pi/rpi_magnet_contact/magnet_contact.py 2>&1`
