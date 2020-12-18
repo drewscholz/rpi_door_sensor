@@ -1,9 +1,7 @@
-#!/usr/bin/python3
-
 '''
  programmed by Drew Scholz
  10/28/2020
- 
+
  Magnet contact sensor
  Make sure wire connections are secure for accurate readings
 '''
@@ -30,7 +28,6 @@ def make_post(door_status):
     print(f"Making API call with door status {door_status}")
     params = dict(status=door_status)
     endpoint = url + '/api/door_magnet'
-    print('endpoint: ', endpoint)
     headers = {'content-type': 'application/json'}
     try:
         response = requests.post(endpoint, headers=headers, verify=False, params=params)
@@ -39,14 +36,21 @@ def make_post(door_status):
         pass
 
 def stay_alive():
-    pass
+    '''
+        Send the states so the FE knows you are active
+    '''
+    make_post(state)
+
 
 '''
   Check magnet once per second.
   Make API call if the state of the door has changed after 3 consecutive seconds of the door state remaining the same
 '''
+print("\nStarting magnet sensor...\n")
+
+lap = 0
 while True:
-    #print(GPIO.input(MAGNET_PIN))
+    lap += 1
     if GPIO.input(MAGNET_PIN) == 0:
         #print('close')
         close_count += 1
@@ -67,6 +71,6 @@ while True:
             state = 'open'
 
     time.sleep(1)
-
-#if __init__ = def __main__:
-
+    if lap % 3600 == 0: # once per hour
+        stay_alive()
+        lap = 0
